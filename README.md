@@ -1,6 +1,5 @@
 # regex-for-hacking
-Regex for hack
-
+Some greps to extract information from hacking tools
 ## TheHarvester Grep E-mail
 ```
 cat theharvester.xml | grep -oP '(?<=<email>).*?(?=</email>)'
