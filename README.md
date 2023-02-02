@@ -20,3 +20,7 @@ cat dnsenum.xml | grep -oP '(?<=<host>).*?(?=</host>)' | awk -F '<' '{print $1}'
 ```
 cat lidercap_dnsenum | grep -oP '(?<=<hostname>).*?(?=</hostname>)'
 ```
+### Grep to get subdomains from Hakrawler
+```
+sed -e '/[A-Z]/d' -e '/*/d' [LIST-FROM-HAKRAWLER] | grep -oP '[a-z0-9]+\.[a-z]+\.[a-z]+' | sort -u
+```
