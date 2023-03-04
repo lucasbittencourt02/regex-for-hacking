@@ -24,3 +24,7 @@ cat lidercap_dnsenum | grep -oP '(?<=<hostname>).*?(?=</hostname>)'
 ```
 sed -e '/[A-Z]/d' -e '/*/d' [LIST-FROM-HAKRAWLER] | grep -oP '[a-z0-9]+\.[a-z]+\.[a-z]+' | sort -u
 ```
+### Grep IPs Up from NMAP
+```
+sudo nmap -sP 172.16.12.0/24 -oG - | awk '/Up$/{print $2}'
+```
