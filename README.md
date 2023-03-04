@@ -28,3 +28,7 @@ sed -e '/[A-Z]/d' -e '/*/d' [LIST-FROM-HAKRAWLER] | grep -oP '[a-z0-9]+\.[a-z]+\
 ```
 sudo nmap -sP 172.16.12.0/24 -oG - | awk '/Up$/{print $2}'
 ```
+### Grep IPs from ifconfig and than validating a http and https are up
+```
+ip -o addr show | grep -v 'inet6' | awk '/wlan0/ {print $4}' | anew network_local | sudo nmap -sP -iL network_local -oG - | awk '/Up$/{print $2}' | httprobe
+```
