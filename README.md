@@ -32,3 +32,8 @@ sudo nmap -sP 172.16.12.0/24 -oG - | awk '/Up$/{print $2}'
 ```
 ip -o addr show | grep -v 'inet6' | awk '/wlan0/ {print $4}' | anew network_local | sudo nmap -sP -iL network_local -oG - | awk '/Up$/{print $2}' | httprobe
 ```
+### Grep IPs Port 445 are up
+
+```
+sudo nmap -Pn -n -p 445 172.16.11.0/24 -oG - | awk '/445\/open/ {print $2}' 
+```
