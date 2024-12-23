@@ -37,3 +37,8 @@ ip -o addr show | grep -v 'inet6' | awk '/wlan0/ {print $4}' | anew network_loca
 ```
 sudo nmap -Pn -n -p 445 172.16.11.0/24 -oG - | awk '/445\/open/ {print $2}' 
 ```
+### Grep Open Ports 
+
+```
+naabu --passive | grep ':' | sed 's/.*://' | anew ports.txt
+```
