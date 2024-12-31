@@ -42,3 +42,6 @@ sudo nmap -Pn -n -p 445 172.16.11.0/24 -oG - | awk '/445\/open/ {print $2}'
 ```
 naabu --passive | grep ':' | sed 's/.*://' | anew ports.txt
 ```
+### Grep and cut URLS paths
+
+grep -oP 'https?://[^/]+(/\S*)' urls.txt | cut -d '/' -f 2
