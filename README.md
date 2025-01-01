@@ -46,7 +46,7 @@ naabu --passive | grep ':' | sed 's/.*://' | anew ports.txt
 ```
 grep -oP 'https?://[^/]+(/\S*)' urls.txt | cut -d '/' -f 2
 ```
-### Grep to remove extensions
+### Grep to remove extensions and params
 ```
-grep -vE '\.(json|css|jpg|png|html|xml|pdf|gff|txt|js)$' urls.txt > filtradas.txt
+grep -vE '\.(json|css|jpg|png|html|xml|pdf|gff|txt|js)$' urls.txt | urls.txt | sed 's/[?].*//' > filtradas.txt
 ```
