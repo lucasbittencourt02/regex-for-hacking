@@ -44,9 +44,9 @@ naabu --passive | grep ':' | sed 's/.*://' | anew ports.txt
 ```
 ### Grep and cut URLS paths
 ```
-grep -oP 'https?://[^/]+(/\S*)' urls.txt | cut -d '/' -f 2
+cat urls.txt | grep -oP 'https?://[^/]+(/\S*)' | cut -d '/' -f 5 | anew urls-merge.txt
 ```
 ### Grep to remove extensions and params
 ```
-grep -vE '\.(json|css|jpg|png|html|xml|pdf|gff|txt|js)$' urls.txt | urls.txt | sed 's/[?].*//' > filtradas.txt
+grep -vE '\.(json|css|jpg|png|html|xml|pdf|gif|txt|js)$' urls-merge.txt | sed 's/[?].*//' > filtradas.txt
 ```
